@@ -1,0 +1,25 @@
+var SceneManager = require('./scene/manager.js'),
+    Detector = require('./api/detector.js');
+
+
+class C3D extends SceneManager {
+  constructor() {
+    if(!twgl) {
+      console.log("twgl の読み込みを確認してください");
+    }
+    if(Detector.canCanvas() && Detector.canWebGL()) {
+      super();
+    } else {
+      alert("最新のブラウザ、または、グラフィックボードのあるPC、スマートフォンを使ってください");
+    }
+
+    this.scene = SceneManager.setScene("title", {});
+  }
+
+  update() {
+    this.scene.update();
+  }
+}
+
+
+module.exports = C3D;
