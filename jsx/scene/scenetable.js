@@ -1,14 +1,9 @@
-var SceneClass = require('./sceneclass.js');
+var TitleScene = require('./titlescene.js');
 
 
 var SceneTable = {
-  title: class titleScene extends SceneClass {
-    constructor(params) {
-      super(params);
-    }
+  title: TitleScene,
 
-
-  },
 };
 
 

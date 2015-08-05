@@ -7,17 +7,16 @@ class C3D extends SceneManager {
     if(!twgl) {
       console.log("twgl の読み込みを確認してください");
     }
-    if(Detector.canCanvas() && Detector.canWebGL()) {
-      super();
-    } else {
+    if(!Detector.canCanvas() || !Detector.canWebGL()) {
       alert("最新のブラウザ、または、グラフィックボードのあるPC、スマートフォンを使ってください");
     }
 
-    this.scene = SceneManager.setScene("title", {});
+    super();
+    super.setScene("title", {drawer: this.drawer});
   }
 
-  update() {
-    this.scene.update();
+  update(time) {
+    this.scene.update(time);
   }
 }
 

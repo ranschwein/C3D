@@ -1,15 +1,18 @@
-var SceneTable = require('./scenetable.js');
+var SceneTable = require('./scenetable.js'),
+    Drawer = require('../draw/drawer.js');
 
 
 class SceneManager {
   constructor() {
-    this.sceneTable = SceneTable;
+    this.drawer = new Drawer();
   }
 
-  static setScene(scene_name, params) {
-    return new this.scenetable[scene_name](params);
+  setScene(scene_name, params) {
+    this.scene =  new SceneManager.sceneTable[scene_name](params);
   }
 }
+
+SceneManager.sceneTable = SceneTable;
 
 
 module.exports = SceneManager;

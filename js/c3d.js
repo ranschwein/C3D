@@ -7,17 +7,16 @@ for(var SceneManager____Key in SceneManager){if(SceneManager.hasOwnProperty(Scen
     if(!twgl) {
       console.log("twgl の読み込みを確認してください");
     }
-    if(Detector.canCanvas() && Detector.canWebGL()) {
-      SceneManager.call(this);
-    } else {
+    if(!Detector.canCanvas() || !Detector.canWebGL()) {
       alert("最新のブラウザ、または、グラフィックボードのあるPC、スマートフォンを使ってください");
     }
 
-    this.scene = SceneManager.setScene("title", {});
+    SceneManager.call(this);
+    ____SuperProtoOfSceneManager.setScene.call(this,"title", {drawer: this.drawer});
   }
 
-  Object.defineProperty(C3D.prototype,"update",{writable:true,configurable:true,value:function() {"use strict";
-    this.scene.update();
+  Object.defineProperty(C3D.prototype,"update",{writable:true,configurable:true,value:function(time) {"use strict";
+    this.scene.update(time);
   }});
 
 

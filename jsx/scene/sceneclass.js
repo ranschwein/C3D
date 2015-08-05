@@ -1,10 +1,10 @@
 class SceneClass {
   constructor(params) {
-
+    this.drawer = params.drawer;
   }
 
-  update() {
-
+  update(time) {
+    alert("Override update METHOD!");
   }
 }
 
